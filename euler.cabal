@@ -16,14 +16,14 @@ cabal-version:       >=1.10
 library
   hs-source-dirs:      src
   ghc-options:         -Wall
-  exposed-modules:     Lib
+  exposed-modules:     Lib, Problems, Common
   other-modules:       Lib.Prelude
   build-depends:       base >= 4.7 && < 5
                      , protolude >= 0.1.6 && < 0.2
   default-language:    Haskell2010
   default-extensions:  OverloadedStrings, NoImplicitPrelude
 
-executable euler-exe
+executable euler
   hs-source-dirs:      app
   main-is:             Main.hs
   ghc-options:         -Wall -threaded -rtsopts -with-rtsopts=-N
