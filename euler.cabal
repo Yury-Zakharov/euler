@@ -2,7 +2,7 @@ name:                euler
 version:             0.1.0.0
 -- synopsis:
 -- description:
-homepage:            https://github.com/githubuser/euler#readme
+homepage:            https://github.com/Yury-Zakharov/euler#readme
 license:             BSD3
 license-file:        LICENSE
 author:              Yury Zakharov
@@ -46,4 +46,4 @@ test-suite euler-test
 
 source-repository head
   type:     git
-  location: https://github.com/githubuser/euler
+  location: https://github.com/Yury-Zakharov/euler
