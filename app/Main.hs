@@ -5,4 +5,4 @@ import Lib
 import Problems
 
 main :: IO ()
-main = print $  problem001 1000
+main = print $  problem002 4000000
