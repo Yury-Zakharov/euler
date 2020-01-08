@@ -2,6 +2,7 @@ module Problems
     (
         problem001
         , problem002
+        , problem003
     ) where
 
 import Lib.Prelude
@@ -22,3 +23,7 @@ problem001 limit  = s3 + s5 - s15 where
 -- | Solves the problem https://projecteuler.net/problem=2
 problem002 :: Integer -> Integer
 problem002 limit = sum $ takeWhile (< limit) $ filter (even) fibs
+
+-- | Solves the problem https://projecteuler.net/problem=3
+problem003 :: Integer -> Integer
+problem003 = maximum . primeFactors
