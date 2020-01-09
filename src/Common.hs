@@ -3,6 +3,7 @@ module Common
     seriesSum
     , fibs
     , primeFactors
+    , isPalindrom
 ) where 
 
 import Lib.Prelude
@@ -45,4 +46,17 @@ isPrime n =
 
 isqrt :: Integer -> Integer
 isqrt = floor . sqrt . fromIntegral
+
+isPalindrom :: Integer -> Bool
+isPalindrom n = foldl (&&) True $ zipWith (==) ns (reverse $ ns) where 
+    ns = toDigits n
+
+
+toDigits :: Integer -> [Integer]
+toDigits n = unfoldr dig n where
+    dig x
+        | x==0 = Nothing
+        | (x > 0) && (x < 10) = Just (x,0)
+        | otherwise = Just (mod x 10, div x 10 )
+
 
