@@ -4,6 +4,7 @@ module Problems
         , problem002
         , problem003
         , problem004
+        , problem005
     ) where
 
 import Lib.Prelude
@@ -33,3 +34,12 @@ problem003 = maximum . primeFactors
 problem004 :: Integer
 problem004 = maximum $ filter (isPalindrom) $ cartesian [100 .. 999] [100 .. 999] where
     cartesian xs ys = [ x*y | x <- xs, y <- ys]
+
+-- | Solves the problem https://projecteuler.net/problem=5
+problem005 :: Integer -> Maybe Integer
+problem005 n = 
+    let 
+        ns =  [2 .. n]
+        m = product ns
+        step = n*(n-1)
+    in head $ filter (\x -> all (\d -> isFactor x d) ns) [step, 2*step..m]
