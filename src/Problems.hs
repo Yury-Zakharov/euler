@@ -5,6 +5,7 @@ module Problems
         , problem003
         , problem004
         , problem005
+        , problem006
     ) where
 
 import Lib.Prelude
@@ -43,3 +44,11 @@ problem005 n =
         m = product ns
         step = n*(n-1)
     in head $ filter (\x -> all (\d -> isFactor x d) ns) [step, 2*step..m]
+
+-- | Solves the problem https://projecteuler.net/problem=6
+-- | in constant time
+problem006 :: Integer -> Integer
+problem006 n =
+    squareSum - sumSquares where
+        squareSum = (div (n*(n+1)) 2) ^ 2
+        sumSquares = div (2*n^3 + 3*n^2 +n) 6 -- Faulhaber
