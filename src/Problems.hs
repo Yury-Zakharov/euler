@@ -7,6 +7,7 @@ module Problems
         , problem005
         , problem006
         , problem007
+        , problem008
     ) where
 
 import Lib.Prelude
@@ -57,3 +58,8 @@ problem006 n =
 -- | Solves the problem https://projecteuler.net/problem=7
 problem007 :: Int -> Maybe Integer
 problem007 n = head $ drop (n-1) primes
+
+-- | Solves the problem https://projecteuler.net/problem=8
+-- | in constant time
+problem008 :: Int -> Integer
+problem008 n = maximum $ map product $ windows n $ toDigits big
