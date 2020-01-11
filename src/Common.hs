@@ -5,6 +5,7 @@ module Common
     , primeFactors
     , isPalindrom
     , isFactor
+    , primes
 ) where 
 
 import Lib.Prelude
