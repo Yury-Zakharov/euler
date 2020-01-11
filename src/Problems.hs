@@ -60,6 +60,5 @@ problem007 :: Int -> Maybe Integer
 problem007 n = head $ drop (n-1) primes
 
 -- | Solves the problem https://projecteuler.net/problem=8
--- | in constant time
 problem008 :: Int -> Integer
 problem008 n = maximum $ map product $ windows n $ toDigits big
