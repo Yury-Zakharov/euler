@@ -8,13 +8,14 @@ module Problems
         , problem006
         , problem007
         , problem008
+        , problem009
     ) where
 
 import Lib.Prelude
 import Common
 
 -- | Solves the problem https://projecteuler.net/problem=1
--- | in constant time
+-- | in O(1)
 problem001 :: Int -> Int
 problem001 limit  = s3 + s5 - s15 where
     l = limit - 1 
@@ -48,7 +49,7 @@ problem005 n =
     in head $ filter (\x -> all (\d -> isFactor x d) ns) [step, 2*step..m]
 
 -- | Solves the problem https://projecteuler.net/problem=6
--- | in constant time
+-- | in O(1)
 problem006 :: Integer -> Integer
 problem006 n =
     squareSum - sumSquares where
@@ -62,3 +63,11 @@ problem007 n = head $ drop (n-1) primes
 -- | Solves the problem https://projecteuler.net/problem=8
 problem008 :: Int -> Integer
 problem008 n = maximum $ map product $ windows n $ toDigits big
+
+-- | Solves the problem https://projecteuler.net/problem=9
+-- | Those magic coefficients are all matter of research and refactoring.
+problem009 :: Int -> Maybe Int
+problem009 n = map pr $ head $ filter (\p-> sm p == n) $ concatMap (\p -> map (\x -> mul x p) [1..25] ) $ toList $ berggren 13 (3,4,5) where
+    mul n (a,b,c) = (a*n,b*n,c*n)
+    pr (a,b,c) = a*b*c
+    sm (a,b,c) = a+b+c
