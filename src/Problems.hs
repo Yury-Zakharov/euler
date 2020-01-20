@@ -9,6 +9,7 @@ module Problems
         , problem007
         , problem008
         , problem009
+        , problem010
     ) where
 
 import Lib.Prelude
@@ -71,3 +72,7 @@ problem009 n = map pr $ head $ filter (\p-> sm p == n) $ concatMap (\p -> map (\
     mul n (a,b,c) = (a*n,b*n,c*n)
     pr (a,b,c) = a*b*c
     sm (a,b,c) = a+b+c
+
+-- | Solves the problem https://projecteuler.net/problem=10
+problem010 :: Integer -> Integer
+problem010 n = foldl' (+) 0 $ takeWhile (<n) primes
